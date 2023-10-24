@@ -99,8 +99,9 @@ export default {
         },
         submitForm() {
             // exibir mensagem de ok
-            
-            this.resposta = 'Form Submitted !'
+
+            this.$swal('Data Received !')
+
             this.$router.push('/');
         }
     }
