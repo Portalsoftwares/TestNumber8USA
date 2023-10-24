@@ -5,9 +5,24 @@
   npm run format
   npm run dev
 
-  
+  ## git commands
+  touch README.md
+git init
+git checkout -b main
+git add README.md
+git commit -m "first commit"
+git remote add origin https://git.number8.com/rafysanchez/number9rafysanchez.git
+git push -u origin main
 
-This template should help get you started developing with Vue 3 in Vite.
+
+git remote add origin https://git.number8.com/rafysanchez/number9rafysanchez.git
+git push -u origin main
+
+
+## **************************
+
+
+
 
 ## Recommended IDE Setup
 
