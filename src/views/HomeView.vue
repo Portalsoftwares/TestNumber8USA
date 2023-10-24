@@ -7,14 +7,14 @@
   <div class="wrapper">
    
    
-    <div v-for="item in propiedades" :key="item.id" class="item">
+    <div v-for="item in propiedades" :key="item.id" class="item text-center">
       <h1>{{ item.Title }} </h1>
       <h2>{{ item.Location }} </h2>
       <h3>{{ item.Description }} </h3>
       <h2>$ {{ item.Value }} </h2>
       
       <div>
-        <router-link :to="{ name: 'DetailView', params: { id: item.id } }">Show Detail</router-link>
+        <router-link :to="{ name: 'DetailView', params: { id: item.id } }" class="btn btn-success">Show Detail</router-link>
 
       </div>
   

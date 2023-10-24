@@ -4,21 +4,20 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <RouterLink to="/" class="nav-link">Home </RouterLink>
+      <RouterLink to="/contact" class="nav-link"> Contact </RouterLink>
+      <RouterLink to="/about" class="nav-link"> About </RouterLink>
+    </div>
 
-
-   
-      <div>
-        <RouterLink to="/">Home </RouterLink>
-        <RouterLink to="/contact"> Contact </RouterLink>
-        <RouterLink to="/about"> About </RouterLink>
-      </div>
+  </nav>
 
 
   <RouterView />
 </template>
 
 <style scoped>
-
 nav a.router-link-exact-active {
   color: var(--color-text);
 }
