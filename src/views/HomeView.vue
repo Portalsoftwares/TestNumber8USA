@@ -1,59 +1,3 @@
-<template>
-  <div class="mt-5">
-
-    <form @submit.prevent="filterProps">
-      <table class="table table-bordered">
-        <tbody style="width: 100%; border-color: blueviolet;">
-          <tr>
-            <td style="width: 20%;"> <label for="beds" class="form-label">Bedrooms:</label>
-              <input type="number" class="form-control" id="beds" v-model="searchModel.beds">
-            </td>
-
-            <td style="width: 20%;">
-              <label for="bath" class="form-label">Bathrooms:</label>
-              <input type="number" class="form-control" id="bath" v-model="searchModel.bath">
-            </td>
-            <td style="width: 20%;">
-              <label for="park" class="form-label">Parking:</label>
-              <input type="number" class="form-control" id="park" v-model="searchModel.park">
-            </td>
-
-            <td style="width: 20%;">
-              <label for="price" class="form-label">Price Range: $ {{ searchModel.price }}</label>
-              <input type="range" class="form-control" id="price" name="price" min="50000" max="800000" step="10000"
-                @input="updateValue" v-model="searchModel.price">
-            </td>
-            <td class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary mt-2">Search</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-
-  </div>
-
-
-
-
-  <div class="wrapper">
-
-
-    <div v-for="item in propiedades" :key="item.id" class="item text-center">
-      <h1>{{ item.Title }} </h1>
-      <h2>{{ item.Location }} </h2>
-      <h3>{{ item.Description }} </h3>
-      <h2>$ {{ item.Value }} </h2>
-
-      <div>
-        <router-link :to="{ name: 'DetailView', params: { id: item.id } }" class="btn btn-success">Show
-          Detail</router-link>
-
-      </div>
-
-    </div>
-  </div>
-</template>
 
 <script>
 
@@ -115,6 +59,49 @@ export default {
 }
 </script>
 
+<template>
+  <div class="mt-5">
+    <form @submit.prevent="filterProps" class="search-form">
+      <div class="form-group">
+        <label for="beds" class="form-label">Bedrooms:</label>
+        <input type="number" class="form-control" id="beds" v-model="searchModel.beds">
+      </div>
+
+      <div class="form-group">
+        <label for="bath" class="form-label">Bathrooms:</label>
+        <input type="number" class="form-control" id="bath" v-model="searchModel.bath">
+      </div>
+
+      <div class="form-group">
+        <label for="park" class="form-label">Parking:</label>
+        <input type="number" class="form-control" id="park" v-model="searchModel.park">
+      </div>
+
+      <div class="form-group">
+        <label for="price" class="form-label">Price Range: $ {{ searchModel.price }}</label>
+        <input type="range" class="form-control" id="price" name="price" min="50000" max="800000" step="10000"
+          @input="updateValue" v-model="searchModel.price">
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="wrapper">
+    <div v-for="item in propiedades" :key="item.id" class="item text-center">
+      <h1>{{ item.Title }} </h1>
+      <h2>{{ item.Location }} </h2>
+      <h3>{{ item.Description }} </h3>
+      <h2>$ {{ item.Value }} </h2>
+      <div>
+        <router-link :to="{ name: 'DetailView', params: { id: item.id } }" class="btn btn-success">Show Detail</router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
 body {
   padding: 0 24px;
@@ -122,39 +109,31 @@ body {
   height: 100vh;
 }
 
-.search {
-  background-color: blue;
-  margin: 30px;
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .wrapper {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .item {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
-  padding: 4px;
+  flex: 0 0 calc(33.33% - 20px);
+  box-sizing: border-box;
+  padding: 20px;
   background-color: rgb(228, 221, 221);
-  min-width: 300px;
-  max-width: 300px;
-  min-height: 300px;
-  padding: auto;
   margin: 10px;
 }
 
 .botao {
   min-width: 130px;
   margin: 30px;
-
 }
 </style>
