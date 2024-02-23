@@ -26,29 +26,25 @@
       </div>
     </form>
   </div>
+
+  <div class="wrapper">
+
+
+    <div v-for="item in propiedades" :key="item.id" class="item text-center">
+      <h1>{{ item.Title }} </h1>
+      <h2>{{ item.Location }} </h2>
+      <h3>{{ item.Description }} </h3>
+      <h2>$ {{ item.Value }} </h2>
+
+      <div>
+        <router-link :to="{ name: 'DetailView', params: { id: item.id } }" class="btn btn-success">Show
+          Detail</router-link>
+
+      </div>
+
+    </div>
+  </div>
 </template>
-
-<style scoped>
-.search-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.form-group {
-  flex: 1 0 20%; /* Adjust as needed */
-  margin-right: 10px;
-}
-
-@media (max-width: 768px) {
-  .form-group {
-    flex: 1 0 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-}
-</style>
 
 <script>
 
@@ -109,3 +105,47 @@ export default {
 
 }
 </script>
+
+<style scoped>
+body {
+  padding: 0 24px;
+  margin: 0;
+  height: 100vh;
+}
+
+.search {
+  background-color: blue;
+  margin: 30px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  padding: 4px;
+  background-color: rgb(228, 221, 221);
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 300px;
+  padding: auto;
+  margin: 10px;
+}
+
+.botao {
+  min-width: 130px;
+  margin: 30px;
+
+}
+</style>
