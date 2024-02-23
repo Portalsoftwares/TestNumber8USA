@@ -112,6 +112,18 @@ body {
   margin: 0;
   height: 100vh;
 }
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group {
+  flex: 1 0 20%; /* Adjust as needed */
+  margin-right: 10px;
+}
+
 
 .search {
   background-color: blue;
@@ -147,5 +159,12 @@ body {
   min-width: 130px;
   margin: 30px;
 
+}
+@media (max-width: 768px) {
+  .form-group {
+    flex: 1 0 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 </style>
